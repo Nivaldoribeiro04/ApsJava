@@ -1,0 +1,1 @@
+insert into desk(nome,senha) values('Master', 9999);
