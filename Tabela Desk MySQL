@@ -1,0 +1,7 @@
+CREATE TABLE desk(
+	id int PRIMARY key AUTO_INCREMENT,
+	nome VARCHAR(255),
+	help_desk int(3) DEFAULT 1,
+	email VARCHAR(255),
+	senha int NOT NULL
+);
