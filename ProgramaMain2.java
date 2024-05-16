@@ -2,6 +2,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 import javax.swing.GroupLayout;
@@ -14,6 +18,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -23,6 +29,7 @@ public class ProgramaMain2 extends JFrame {
 	private JPanel contentPane;
 	private BufferedImage img = null;
 	public static String nomePag = "Help Desk";
+	public int id;
 	/**
 	 * Launch the application.
 	 * @throws IOException 
@@ -37,9 +44,13 @@ public class ProgramaMain2 extends JFrame {
 			
 				
 	}
-
+	public void mudID(int a) {
+		this.id = a;
+		System.out.println(id);
+	}
 	
 	public ProgramaMain2() throws IOException {
+	
 		setTitle(nomePag);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -65,6 +76,16 @@ public class ProgramaMain2 extends JFrame {
 				chatUsuario.setLocationRelativeTo(null);
 			}
 		});
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Cadastro de Patrimonio");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadPatrimonio telaPatrimonio = new CadPatrimonio();
+				telaPatrimonio.setLocationRelativeTo(null);
+				telaPatrimonio.mudID(id);
+			}
+		});
+		mnNewMenu_1.add(mntmNewMenuItem_1);
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
 		JMenu mnNewMenu_2 = new JMenu("Usu\u00E1rio");
