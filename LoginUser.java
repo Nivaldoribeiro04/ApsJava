@@ -27,7 +27,7 @@ public class LoginUser extends JFrame {
 	public boolean login = false;
 	public String a = null;
 	public String b = null;
-
+	public int id1;
 	
 
 	
@@ -107,11 +107,13 @@ public class LoginUser extends JFrame {
 					if(rs.next()) {
 						JOptionPane.showMessageDialog(null, "Bem Vindo ao Sistema!!!");
 					    a = rs.getString(2);
+					    id1 = rs.getInt(1);
 						ProgramaMain2 pr2 = new ProgramaMain2();
 						pr2.setBounds(100, 100, 850, 500);
 						pr2.setLocationRelativeTo(null);
 						pr2.setVisible(true);
 						pr2.setTitle(a);
+						pr2.mudID(id1);
 						setVisible(false);
 					}else if(rs2.next()) {
 						JOptionPane.showMessageDialog(null, "Bem Vindo ao Sistema, help desk");
@@ -123,7 +125,7 @@ public class LoginUser extends JFrame {
 						telaDesk.setTitle(b);
 						setVisible(false);
 					}else {
-						JOptionPane.showMessageDialog(null, "Usuario Não Encontrado!!");
+						JOptionPane.showMessageDialog(null, "Usuario NÃ£o Encontrado!!");
 						textUser.setText(" ");
 						textSenha.setText(" ");
 					}
@@ -186,3 +188,4 @@ public class LoginUser extends JFrame {
 		setVisible(true);
 	}
 }
+
