@@ -1,0 +1,14 @@
+CREATE TABLE patrimonio(
+	id int PRIMARY key AUTO_INCREMENT,
+	nome_equipamento varchar(255),
+	numero_serie varchar(255),
+	quntidade int(50),
+	numero_patrimonio int(120),
+	nome_empresa varchar(255),
+	descricao text,
+	status Varchar(255) DEFAULT 'Não Atendido',
+	id_usuario int,
+	FOREIGN KEY(id_usuario)
+	REFERENCES usuario(id)
+
+);
